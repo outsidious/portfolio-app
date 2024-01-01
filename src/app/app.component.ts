@@ -23,16 +23,18 @@ export class AppComponent implements OnInit {
         clearTimeout(timer);
       }
       for (let i = 0; i < nodeFavicon.length; i++) {
-        nodeFavicon[i].setAttribute("href", `./assets/icons/outsidious_${counter}.svg`);
+        const sizes: string | null = nodeFavicon[i].getAttribute('sizes');
+        if (sizes === '48x48') {
+          nodeFavicon[i].setAttribute("href", `../favicon/ico/outsidious_${counter}.ico`);
+        }
+        else if (sizes === 'any') {
+          nodeFavicon[i].setAttribute("href", `../favicon/svg/outsidious_${counter}.svg`);
+        }
       }
       counter = (counter + 1) % qua;
-      //timer = setTimeout(animateFavicon, 5000);
+      timer = setTimeout(animateFavicon, 1500);
     }
 
-    //setTimeout(animateFavicon, 5000);
-
-    document.addEventListener('click', () => {
-      animateFavicon();
-    })
+    animateFavicon();
   }
 }
