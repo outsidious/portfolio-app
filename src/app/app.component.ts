@@ -1,16 +1,26 @@
-import { Component, OnInit } from '@angular/core';
+import { TuiRootModule, TuiDialogModule, TuiAlertModule, TuiBrightness } from "@taiga-ui/core";
+import { Component, Inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { FeatureHeaderComponent } from '@portfolio-app/feature-header'
+import { AppStructure, FeatureHeaderComponent } from '@portfolio-app/feature-header';
+import { TuiThemeNightModule, TuiModeModule } from '@taiga-ui/core';
+import { TuiThemeNightService } from '@taiga-ui/addon-doc/services';
+import { CommonModule } from "@angular/common";
 
 @Component({
   standalone: true,
-  imports: [RouterModule, FeatureHeaderComponent],
+  imports: [RouterModule, FeatureHeaderComponent, TuiRootModule, TuiDialogModule, TuiAlertModule, TuiThemeNightModule,
+    TuiModeModule, CommonModule],
   selector: 'portfolio-app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
 export class AppComponent implements OnInit {
   title = 'portfolio-app';
+  appStruct: AppStructure = [{ path: '/location', title: 'Обо мне' },
+  { path: '/positions', title: 'Позиции' },
+  { path: '/projects', title: 'Проекты' }]
+
+  constructor(@Inject(TuiThemeNightService) readonly night: TuiThemeNightService) { }
 
   ngOnInit(): void {
     let counter = 0;
@@ -36,5 +46,9 @@ export class AppComponent implements OnInit {
     }
 
     animateFavicon();
+  }
+
+  get mode(): TuiBrightness | null {
+    return this.night.value ? 'onDark' : null;
   }
 }
