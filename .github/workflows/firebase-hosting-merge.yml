@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: >-
-          npm cache clean --force && npm i && nx run portfolio-app:build --configuration=production
+          npm cache clean --force && npm i && npm install --global nx@17 && nx run portfolio-app:build --configuration=production
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
