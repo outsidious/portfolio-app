@@ -1,0 +1,42 @@
+@import '@taiga-ui/core/styles/taiga-ui-local.less';
+ 
+:host {
+    display: block;
+    background: var(--tui-clear);
+}
+    
+.wrapper {
+    .inset-border(bottom, light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+ 
+.content {
+    padding: 2rem 2rem 4rem;
+}
+ 
+.title {
+    min-width: 12rem;
+    margin: 0;
+}
+ 
+.tabs {
+    width: 50%;
+    box-shadow: none;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+
+    .action {
+        margin-left: 10px;
+    }
+
+    .custom-svg:hover {
+        color: white;
+        background: linear-gradient(45deg, #c86dd7 0%, #3023ae 100%);
+    }
+}
