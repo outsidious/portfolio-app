@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { FeatureHeaderComponent } from '@portfolio-app/feature-header'
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [RouterModule, FeatureHeaderComponent],
   selector: 'portfolio-app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
