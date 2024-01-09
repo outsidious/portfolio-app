@@ -11,8 +11,3 @@ jobs:
       - uses: actions/checkout@v3
       - run: >-
           npm cache clean --force && npm i && npm install --global nx@17 && nx run portfolio-app:build --configuration=production
-      - uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_IAM_OUTSIDIOUS }}'
-          projectId: iam-outsidious
