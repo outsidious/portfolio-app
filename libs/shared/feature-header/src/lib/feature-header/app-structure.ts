@@ -1,0 +1,1 @@
+export type AppStructure = { path: string, title: string }[];
