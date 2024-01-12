@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, Inject, Input, OnInit } from '@angular/core';
-import { tuiIsString } from '@taiga-ui/cdk';
 import { TuiMarkerIconModule, TuiTabsModule, TuiToggleModule } from '@taiga-ui/kit';
 import { AppStructure } from './app-structure';
 import { Router, RouterModule } from '@angular/router';
 import { TuiThemeNightService } from '@taiga-ui/addon-doc';
+import { FormsModule } from '@angular/forms';
+import { SvgIconComponent } from 'angular-svg-icon';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'shared-feature-header',
   standalone: true,
-  imports: [CommonModule, TuiTabsModule, RouterModule, TuiToggleModule, TuiMarkerIconModule],
+  imports: [CommonModule, HttpClientModule, TuiTabsModule, RouterModule, TuiToggleModule, TuiMarkerIconModule, FormsModule, SvgIconComponent],
   templateUrl: './feature-header.component.html',
   styleUrl: './feature-header.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -19,11 +21,11 @@ export class FeatureHeaderComponent implements OnInit {
   appStruct?: AppStructure;
   tabs: string[] = ['']
   activeElement: string = '';
+  isThemeDark: boolean = false;
 
   constructor(private router: Router, @Inject(TuiThemeNightService) readonly night: TuiThemeNightService) { }
 
   ngOnInit() {
-    console.log(this.appStruct);
     if (this.appStruct) {
       this.tabs = this.appStruct.map(val => val.title);
       const path = location.pathname;
@@ -32,7 +34,7 @@ export class FeatureHeaderComponent implements OnInit {
         this.activeElement = tab.title;
       }
     }
-    console.log(location);
+    this.isThemeDark = this.night.getValue() ?? false;
   }
 
   get activeItemIndex(): number {
@@ -45,5 +47,9 @@ export class FeatureHeaderComponent implements OnInit {
     if (url) {
       this.router.navigateByUrl(url);
     }
+  }
+
+  toggleTheme() {
+    this.night.toggle();
   }
 }
