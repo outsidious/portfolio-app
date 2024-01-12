@@ -1,5 +1,8 @@
 <header tuiMode="onDark" class="wrapper">
-    <h1 class="tui-text_h3 title">Outsidious</h1>
+    <div class="logo" (click)="onClick('Обо мне')">
+        <svg-icon *ngIf="isThemeDark" src="assets/logo.svg"></svg-icon>
+        <svg-icon *ngIf="!isThemeDark" src="assets/logo-light.svg"></svg-icon>
+    </div>
     <tui-tabs-with-more class="tabs" [activeItemIndex]="activeItemIndex">
         <ng-container *ngFor="let tab of tabs">
             <button *tuiItem tuiTab (click)="onClick(tab)">
@@ -10,7 +13,7 @@
     <div class="actions">
         <tui-marker-icon src="tuiIconDownload" class="action custom-svg" [size]="'xs'"
             title="Скачать резюме"></tui-marker-icon>
-        <tui-toggle (click)="night.toggle()" class="action" [showIcons]="true" [size]="'l'"
+        <tui-toggle (click)="toggleTheme()" [(ngModel)]="isThemeDark" class="action" [showIcons]="true" [size]="'l'"
             title="Переключить тему"></tui-toggle>
     </div>
 </header>
