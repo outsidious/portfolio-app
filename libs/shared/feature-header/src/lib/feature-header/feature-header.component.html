@@ -10,10 +10,12 @@
             </button>
         </ng-container>
     </tui-tabs-with-more>
-    <div class="actions">
-        <tui-marker-icon src="tuiIconDownload" class="action custom-svg" [size]="'xs'"
-            title="Скачать резюме"></tui-marker-icon>
-        <tui-toggle (click)="toggleTheme()" [(ngModel)]="isThemeDark" class="action" [showIcons]="true" [size]="'l'"
-            title="Переключить тему"></tui-toggle>
+    <div class="forest">
+        <div class="actions">
+            <tui-marker-icon src="tuiIconDownload" class="action custom-svg" [size]="'xs'"
+                title="Скачать резюме"></tui-marker-icon>
+            <tui-toggle (click)="toggleTheme()" [(ngModel)]="isThemeDark" class="action" [showIcons]="true" [size]="'l'"
+                title="Переключить тему"></tui-toggle>
+        </div>
     </div>
 </header>
