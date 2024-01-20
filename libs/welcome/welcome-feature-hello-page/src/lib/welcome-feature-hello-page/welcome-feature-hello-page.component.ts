@@ -6,6 +6,6 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './welcome-feature-hello-page.component.html',
-  styleUrl: './welcome-feature-hello-page.component.css',
+  styleUrl: './welcome-feature-hello-page.component.scss',
 })
 export class HelloPageComponent { }
