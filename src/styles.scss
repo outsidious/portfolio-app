@@ -1,3 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@200;400&display=swap');
+
+body {
+    margin: 0;
+}
+
+h1, h2, h3, p, span, div {
+    font-family: "Ubuntu", sans-serif;
+    color: var(--tui-text-01);
+}
+
+h1 {
+    font-size: 5.5rem;
+}
+
+p {
+    font-size: 1.8rem;
+}
+
+
 div[tuiWrapper][data-appearance=primary] {
     background: linear-gradient(45deg, #c86dd7 0%, #3023ae 100%) !important;
 }
