@@ -5,7 +5,7 @@ name: Build
 'on': push
 jobs:
   build_and_preview:
-    if: github.ref_name != 'main'
+    if: github.ref_name != 'develop'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
