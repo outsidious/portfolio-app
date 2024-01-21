@@ -3,16 +3,28 @@
     justify-content: space-between;
 
     &__info {
-        padding-left: 0.7rem;
-        padding-top: 0.8rem;
+        padding-left: 1vw;
+        padding-top: 1.5vw;
     }
 
     &__photo {
-        max-height: calc(100vh - 70px);
-        max-width: 100%;
+        max-height: calc(100vh - 60px);
+        max-width: 550px;
         width: auto;
-        min-width: 350px;
+        min-width: 360px;
         overflow: hidden;
         object-fit: cover;
+        padding-left: 1vw;
+        filter: contrast(85%);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .wrapper {
+        flex-direction: column;
+
+        &__photo {
+            padding-right: 4vw;
+        }
     }
 }
