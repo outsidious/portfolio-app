@@ -23,7 +23,7 @@ export class FeatureHeaderComponent implements OnInit {
   activeElement: string = '';
   isThemeDark: boolean = false;
 
-  constructor(private router: Router, @Inject(TuiThemeNightService) readonly night: TuiThemeNightService) { }
+  constructor(private router: Router, private night: TuiThemeNightService) { }
 
   ngOnInit() {
     if (this.appStruct) {
